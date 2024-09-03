@@ -4,12 +4,12 @@
     COURSE: "DevOps with AWS from PLAY level"
     DURATION: "120HRS"
     TRAINER: "Sivakumar Reddy M"
-  vars_files:
-  - vars.yaml  
-  vars_prompt:
-  - name: COURSE
-    prompt: Please enter the course name
-    private: false # not confidentiall
+  # vars_files:
+  # - vars.yaml  
+  # vars_prompt:
+  # - name: COURSE
+  #   prompt: Please enter the course name
+  #   private: false # not confidentiall
   tasks:
   - name: print the information
     vars:
@@ -21,3 +21,5 @@
       #1. command line/args
       #2. Task level
       #3. Files
+      #4. prompt
+      #5. Play
