@@ -35,9 +35,9 @@
   - name: convert map to list
     vars:
       course:
-      name: "DevOps with AWS"
-      duration: 120HRS
-      trainer: "Sivakumar reddy"
+       name: "DevOps with AWS"
+       duration: 120HRS
+       trainer: "Sivakumar reddy"
     ansible.builtin.debug:
       msg: "{{ course | dict2items }}"  
 
