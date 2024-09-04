@@ -1,8 +1,8 @@
--name: demo on filters/functions
- hosts: local
- connnections: local
- tasks: 
- - name: print the default varibles
-   ansible.builtin.debug:
-     msg: "Hello {{ course  defsult('Ansible') }}" 
+- name: demo on filters/functions
+  hosts: local
+  connnections: local
+  tasks: 
+  - name: print the default varibles
+    ansible.builtin.debug:
+      msg: "Hello {{ course  defsult('Ansible') }}" 
 
