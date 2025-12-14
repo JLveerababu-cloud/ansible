@@ -1,5 +1,5 @@
 - name: devops course information
-  hostst: local
+  hosts: local
   connections: local # local host
   vars:
     course: "DevOps with AWS"  #string
