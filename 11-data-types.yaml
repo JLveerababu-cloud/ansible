@@ -1,10 +1,10 @@
 - name: devops course information
   hosts: local
-  connections: local # local host
+  connection: local # local
   vars:
     course: "DevOps with AWS"  #string
     duration: 120 #number
-    topics: 
+    topics: #list
     - Linex
     - shell
     - ansible
@@ -22,6 +22,6 @@
   tasks:
   - name: print the course information
     ansible.builtin.debug:
-      msg: |"HI, I am learning{{ course}}, with duration: {{ duration }}, topics are {{ topics }},and live: {{ live }}, tools are {{ tools }}"
+      msg: "HI, I am learning{{ course}}, with duration: {{ duration }}, topics are {{ topics }},and live: {{ live }}, tools are {{ tools }}"
         
         
