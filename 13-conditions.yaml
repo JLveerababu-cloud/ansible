@@ -1,16 +1,15 @@
 - name: create user
-  hosts: backend
-  become: true
+  hosts: web
+  become: yes
   tasks:
-  - name: create a user exist or not
+  - name: check user exist or not
     ansible.builtin.command: id expense
-    register: USER #here USER is a varaibl that gets output from above command 
-    ignore_errors: yes
+    register: USER #here USER is a variable that gets output from above command
+    ignore_errors: True
 
-  - name: print the user imformation
-    ansible.builtin.user:
-       msg:  "user info: {{ USER }}"
-
+  - name: print the user information
+    ansible.builtin.debug:
+      msg: "user info: {{ USER }}"
 
   - name: create user
     ansible.builtin.command: useradd expense
