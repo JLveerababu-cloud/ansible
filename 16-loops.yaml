@@ -3,10 +3,11 @@
   connection: local
   tasks:
   - name: print names
-    ansible.builtin.debug:
-      msg: "Hello Ramesh"
+    ansible.builtin.package:
+      name: "{{ item }}"
+      state: present
     loop:
-      - Ramesh  
-      - Suresh
-      - Mahesh
-      - Rajesh                
+    - mysql
+    - nginx
+    - postfix
+    - http                
