@@ -1,0 +1,6 @@
+- name: create user
+  hosts: backend
+  become: yes
+  tasks:
+  - name: create a user exist or not
+    
