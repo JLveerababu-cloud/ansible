@@ -1,6 +1,6 @@
 - name: create user
   hosts: backend
-  become: yes
+  become: true
   tasks:
   - name: create a user exist or not
     ansible.builtin.command: id expense
@@ -10,4 +10,10 @@
   - name: print the user imformation
     ansible.builtin.user:
        msg:  "user info: {{ USER }}"
+
+
+  - name: create user
+    ansible.builtin.command: useradd expense
+    when: USER.rc != 0
+
       
