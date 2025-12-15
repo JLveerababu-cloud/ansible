@@ -3,4 +3,10 @@
   become: yes
   tasks:
   - name: create a user exist or not
-    
+    ansible.builtin.command: id expense
+    register: USER #here USER is a varaibl that gets output from above command 
+
+  - name: print the user imformation
+    ansible.builtin.user:
+       msg:  "user info: {{ USER }}"
+      
