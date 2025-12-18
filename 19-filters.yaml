@@ -20,6 +20,12 @@
     
   - name: get the uniq values
     vars:
-      my_list: [10,20,30,10,25,40,50,60,40]
+      numbers: [10,20,30,10,25,40,50,60,40]
     ansible.builtin.debug:
       msg: " {{ number | unique }} "
+
+  - name: get the min and max
+    vars:
+      numbers: [10,20,30,10,25,40,50,60,40]
+    ansible.builtin.debug:
+      msg: " Min: {{ numbers | min }}, Max: {{ numbers | max }} "    
