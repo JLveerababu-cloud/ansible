@@ -18,3 +18,8 @@
     ansible.builtin.debug:
       msg: " {{ greeting | lower }}"
     
+  - name: get the uniq values
+    vars:
+      my_list: [10,20,30,10,25,40,50,60,40]
+    ansible.builtin.debug:
+      msg: " {{ number | uniq}} "
