@@ -5,7 +5,7 @@
     subnet_id: subnet-0b6caa5b84c942938  # replace with your subnet id
     sg_id: "125069145560"
     ami_id: "ami-09c813fb71547fc4f"
-    instanes:
+    instances:
     - mysql
     - backend
     - frontend
@@ -17,8 +17,9 @@
       instance_type: "t3.micro"
       security_groups: ["{{ sg_id }}"]
       image_id: "{{ ami_id }}"
-    loop: "{{ instanes }}"  
+    loop: "{{ instances }}" 
     register: ec2_instances
+    
      
       
 
