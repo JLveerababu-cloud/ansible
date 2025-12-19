@@ -25,14 +25,14 @@
     ansible.builtin.debug:
       msg:  "{{ ec2_instances }}"
 
-  - name: create r53 records
+  - name: create r53 private records
     amazon.aws.route53:
       state: present
-      zone: "{{ zone }}"  # mysql.veerabab.online
-      record: "{{ item.item }}.{{ zone }}"  # replace with your domain name
+      zone: "{{ zone }}"
+      record: "{{ item.item }}.{{ zone }}" #mysql.veerabab.online
       type: A
       ttl: 1
-      value: "{{ item.instance[0].private_ip_address }}"
+      value: "{{ item.instances[0].private_ip_address }}"
       wait: true
       overwrite: true
     loop: "{{ ec2_instances.results }}"
