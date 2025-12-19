@@ -25,15 +25,32 @@
     ansible.builtin.debug:
       msg:  "{{ ec2_instances }}"
 
-  - name: create r53 private records
+  # private IP R53
+  - name: create r53 record for private
     amazon.aws.route53:
       state: present
       zone: "{{ zone }}"
-      record: "{{ item.item }}.{{ zone }}" #mysql.veerabab.online
+      record: "{{ item.item }}.{{ zone }}" #mysql.veerababu.online
       type: A
       ttl: 1
       value: "{{ item.instances[0].private_ip_address }}"
       wait: true
       overwrite: true
     loop: "{{ ec2_instances.results }}"
+
+  # public IP R53
+  
+  - name: create r53 record for frontend
+    amazon.aws.route53:
+      state: present
+      zone: "{{ zone }}"
+      record: "{{ item.item }}.{{ zone }}" #frontend.veerababu.online
+      type: A
+      ttl: 1
+      value: "{{ item.instances[0].public_ip_address }}"
+      wait: true
+      overwrite: true
+    loop: "{{ ec2_instances.results }}"
+    when: ec2_instance.results.item == "frontend"
+
        
