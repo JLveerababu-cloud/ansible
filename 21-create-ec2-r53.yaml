@@ -40,11 +40,11 @@
 
   # public IP R53
 
-  - name: create r53 record for frontend
+  - name: create r53 public record for frontend
     amazon.aws.route53:
       state: present
       zone: "{{ zone }}"
-      record: "{{ zone }}" #frontend.veerababu.online
+      record: "{{ zone }}" #veerababu.online
       type: A
       ttl: 1
       value: "{{ item.instances[0].public_ip_address }}"
